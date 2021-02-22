@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/email.png</file>
+        <file>images/name.png</file>
+        <file>images/password.png</file>
+        <file>images/registration.png</file>
+        <file>images/question.png</file>
+        <file>images/remove-button.png</file>
+        <file>images/reg.png</file>
+        <file>images/welcome.png</file>
+        <file>images/confusuon.png</file>
+    </qresource>
+</RCC>
