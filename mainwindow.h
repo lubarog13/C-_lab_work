@@ -4,8 +4,14 @@
 #include <QMainWindow>
 #include <mainwindow_password.h>
 #include <mainwindow_new.h>
+
 #include <QLabel>
 #include <QPushButton>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlTableModel>
 #include <QLineEdit>
 #include <QMenuBar>
 #include <QMenu>
@@ -25,6 +31,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QSqlDatabase users;
     MainWindow_Password *pWindow;
     MainWindow_New *nWindow;
     QLineEdit *Login;
@@ -32,20 +39,7 @@ private:
     QLineEdit *Password;
     QPushButton *btnCreate;
     QPushButton *btnEnter;
-    QMenuBar *menubar;
-    QMenu *aboutMenu;
-    QMenu *helpMenu;
-    QAction *programDeveloperAction;
-    QAction *programVersionAction;
-    QAction *programHelpAction;
-    QAction *programExitAction;
-    void createMenu();
-    void createActions();
 
-    void aboutDeveloper();
-    void aboutProgramVersion();
-    void Help();
-    void Exit();
 
 private slots:
     void Create();

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,20 +9,37 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addstudent.cpp \
+    adduser.cpp \
+    changeuser.cpp \
     main.cpp \
     mainwindow.cpp \
     mainwindow_new.cpp \
-    mainwindow_password.cpp
+    mainwindow_password.cpp \
+    user.cpp \
+    viewstudents.cpp \
+    viewusers.cpp
 
 HEADERS += \
+    addstudent.h \
+    adduser.h \
+    changeuser.h \
     mainwindow.h \
     mainwindow_new.h \
-    mainwindow_password.h
+    mainwindow_password.h \
+    user.h \
+    viewstudents.h \
+    viewusers.h
 
 FORMS += \
+    addstudent.ui \
+    adduser.ui \
+    changeuser.ui \
     mainwindow.ui \
     mainwindow_new.ui \
-    mainwindow_password.ui
+    mainwindow_password.ui \
+    viewstudents.ui \
+    viewusers.ui
 
 TRANSLATIONS += \
     Registration_ru_RU.ts

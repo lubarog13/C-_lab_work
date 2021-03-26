@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QSqlDatabase>
+#include <QStandardPaths>
+#include <QDir>
 
 int main(int argc, char *argv[])
 {

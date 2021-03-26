@@ -9,5 +9,13 @@
         <file>images/reg.png</file>
         <file>images/welcome.png</file>
         <file>images/confusuon.png</file>
+        <file>images/biblio.jpg</file>
+        <file>images/main.png</file>
+        <file>images/add.png</file>
+        <file>users.db</file>
+        <file>images/user.png</file>
+        <file>images/crowd.png</file>
+        <file>images/student_sp.png</file>
+        <file>images/change.png</file>
     </qresource>
 </RCC>

@@ -6,8 +6,16 @@ MainWindow_New::MainWindow_New(QWidget *parent) :
     ui(new Ui::MainWindow_New)
 {
     ui->setupUi(this);
+    asWindow = new class AddStudent();
+    adWindow = new class AddUser();
+    vuWindow = new class viewUsers();
+    vsWindow = new class viewStudents();
     this->setWindowTitle("Учебное заведение");
-    this->setWindowIcon(QIcon(":/images/registration.png"));
+    this->setWindowIcon(QIcon(":/images/main.png"));
+    connect(asWindow, &AddStudent::regwindow, this, &MainWindow_New::show);
+     connect(vuWindow, &viewUsers::regwindow, this, &MainWindow_New::show);
+    connect(adWindow, &AddUser::regwindow, this, &MainWindow_New::show);
+    connect(vsWindow, &viewStudents::regwindow, this, &MainWindow_New::show);
     btnStudents = ui->btnStudents;
     btnUsers = ui->btnUsers;
     btnExit = ui->btnExit;
@@ -31,16 +39,16 @@ MainWindow_New::~MainWindow_New()
     delete ui;
 }
 void MainWindow_New::Students(){
-
+    vsWindow->show();
 }
 void MainWindow_New::Users(){
-
+    vuWindow->show();
 }
 void MainWindow_New::AddStudent(){
-
+    asWindow->show();
 }
 void MainWindow_New::AddUser(){
-
+    adWindow->show();
 }
 void MainWindow_New::Exit(){
     this->close();

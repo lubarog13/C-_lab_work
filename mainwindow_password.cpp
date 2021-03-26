@@ -8,8 +8,16 @@ MainWindow_Password::MainWindow_Password(QWidget *parent) :
     ui(new Ui::MainWindow_Password)
 {
     ui->setupUi(this);
+    QSqlDatabase sdb = QSqlDatabase::addDatabase("QSQLITE");
+    sdb.setDatabaseName("users.db");
+    if(!sdb.open()){
+        qDebug() << sdb.lastError().text();
+    }
+    else{
+        qDebug() <<"Success!";
+    }
     this->setWindowTitle("Восстановить пароль");
-    this->setWindowIcon(QIcon(":/images/registration.png"));
+    this->setWindowIcon(QIcon(":/images/main.png"));
     QPixmap forgetIcon(":/images/confusuon.png");
     int w = 100;
     int h = 100;
@@ -29,18 +37,32 @@ MainWindow_Password::~MainWindow_Password()
 void MainWindow_Password::Enter(){
     QString email = EmailorL->text();
     QString code = Code->text();
-    int dog = 0;
+    bool enter=false;
     if(email.length()>0&& code.length()>0){
-        for(int i=0; i<email.length(); i++){
-            if(email[i]=='@'){
-                dog += 1;
+        QSqlQuery a_query;
+            // DDL query
+            //.....
+            if (!a_query.exec("SELECT * FROM users_new")) {
+                qDebug() << "Даже селект не получается, я пас.";
             }
-        }
-         if(dog<=1){
-            QMessageBox::information(this, "Успешно", "Ваш новый пароль: 12fgh67");
-         }
-         else QMessageBox::critical(this, "Ошибка", "Введён неверный email или логин");
-    }
+            QSqlRecord rec = a_query.record();
+            int db_id=0;
+            QString db_login = "", db_email="", db_password="";
+
+            while (a_query.next()) {
+                db_id = a_query.value(rec.indexOf("user_id")).toInt();
+                db_login = a_query.value(rec.indexOf("user_login")).toString();
+                db_email = a_query.value(rec.indexOf("user_email")).toString();
+                db_password= a_query.value(rec.indexOf("user_password")).toString();
+                if((email==db_login||email==db_email)&&code=="Xorpass"){
+                    enter=true;
+                    QMessageBox::information(this, "Восстановление пароля", "Ваш пароль:" + db_password);
+                qDebug() <<db_id<<" "<<db_login<<" "<<db_email<<" "<<db_password;
+
+            }
+            }
+            if(!enter) QMessageBox::warning(this, "Предупреждение", "Что-то заполнено неверно");
+     }
     else QMessageBox::warning(this, "Предупреждение", "Некоторые поля не заполнены");
 }
 void MainWindow_Password::Back(){

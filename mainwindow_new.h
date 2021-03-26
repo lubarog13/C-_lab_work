@@ -2,6 +2,10 @@
 #define MAINWINDOW_NEW_H
 
 #include <QMainWindow>
+#include <addstudent.h>
+#include <adduser.h>
+#include <viewstudents.h>
+#include <viewusers.h>
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
@@ -22,6 +26,10 @@ signals:
     void regwindow();
 private:
     Ui::MainWindow_New *ui;
+    AddStudent *asWindow;
+    AddUser *adWindow;
+    viewStudents *vsWindow;
+    viewUsers *vuWindow;
     QPushButton *btnStudents;
     QPushButton *btnUsers;
     QPushButton *btnExit;
