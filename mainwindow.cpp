@@ -85,7 +85,6 @@ void MainWindow::Enter(){
                 db_email = a_query.value(rec.indexOf("user_email")).toString();
                 db_password= a_query.value(rec.indexOf("user_password")).toString();
                 if(login==db_login&&email==db_email&&password==db_password) enter=true;
-                qDebug() <<db_id<<" "<<db_login<<" "<<db_email<<" "<<db_password;
 
             }
 

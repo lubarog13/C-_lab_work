@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     addstudent.cpp \
     adduser.cpp \
+    changestudent.cpp \
     changeuser.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 HEADERS += \
     addstudent.h \
     adduser.h \
+    changestudent.h \
     changeuser.h \
     mainwindow.h \
     mainwindow_new.h \
@@ -34,6 +36,7 @@ HEADERS += \
 FORMS += \
     addstudent.ui \
     adduser.ui \
+    changestudent.ui \
     changeuser.ui \
     mainwindow.ui \
     mainwindow_new.ui \

@@ -57,7 +57,6 @@ void MainWindow_Password::Enter(){
                 if((email==db_login||email==db_email)&&code=="Xorpass"){
                     enter=true;
                     QMessageBox::information(this, "Восстановление пароля", "Ваш пароль:" + db_password);
-                qDebug() <<db_id<<" "<<db_login<<" "<<db_email<<" "<<db_password;
 
             }
             }

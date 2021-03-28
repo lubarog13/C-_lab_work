@@ -80,6 +80,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="btnChange">
+        <property name="text">
+         <string>Редактировать</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="btnBack">
         <property name="text">
          <string>Назад</string>

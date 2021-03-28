@@ -14,13 +14,17 @@ viewStudents::viewStudents(QWidget *parent) :
     else{
         qDebug() <<"Success!";
     }
+    cWindow = new class changeStudent();
+    connect(cWindow, &changeStudent::regwindow, this, &changeStudent::show);
     this->setWindowTitle("Список студентов");
     this->setWindowIcon(QIcon(":/images/main.png"));
     btnBack = ui->btnBack;
     btnUpdate = ui->btnUpdate;
+    btnChange=ui->btnChange;
     Update();
     connect(btnBack, &QPushButton::clicked, this, &viewStudents::Back);
     connect(btnUpdate, &QPushButton::clicked, this, &viewStudents::Update);
+    connect(btnChange, &QPushButton::clicked, this, &viewStudents::Change);
 }
 
 viewStudents::~viewStudents()
@@ -44,7 +48,6 @@ void viewStudents::Update(){
                     int date_birth = model.record(i).value("student_date_birth").toInt();
                     text5+= model.record(i).value("student_group").toString() + "\n";
                     QDateTime valid = QDateTime::fromSecsSinceEpoch(date_birth);
-                    qDebug()<<date_birth<<" ";
                     text4+=valid.toString("dd-MM-yyyy") + "\n";
 
         }
@@ -59,4 +62,7 @@ void viewStudents::Update(){
 void viewStudents::Back(){
     this->close();
     emit regwindow();
+}
+void viewStudents::Change(){
+    cWindow->show();
 }
