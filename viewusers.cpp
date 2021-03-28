@@ -8,8 +8,8 @@ viewUsers::viewUsers(QWidget *parent) :
     ui(new Ui::viewUsers)
 {
     ui->setupUi(this);
-    aWindow = new class AddUser();
-    connect(aWindow, &AddUser::regwindow, this, &AddUser::show);
+    aWindow = new class changeUser();
+    connect(aWindow, &changeUser::regwindow, this, &changeUser::show);
     QSqlDatabase sdb = QSqlDatabase::addDatabase("QSQLITE");
     sdb.setDatabaseName("users.db");
     if(!sdb.open()){
@@ -24,7 +24,7 @@ viewUsers::viewUsers(QWidget *parent) :
     btnChange=ui->btnChange;
     btnUpdate = ui->btnUpdate;
     Update();
-    connect(btnChange, &QPushButton::clicked, this, &viewUsers::Change)
+    connect(btnChange, &QPushButton::clicked, this, &viewUsers::Change);
     connect(btnBack, &QPushButton::clicked, this, &viewUsers::Back);
     connect(btnUpdate, &QPushButton::clicked, this, &viewUsers::Update);
 

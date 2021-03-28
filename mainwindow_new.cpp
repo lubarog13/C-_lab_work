@@ -39,9 +39,11 @@ MainWindow_New::~MainWindow_New()
     delete ui;
 }
 void MainWindow_New::Students(){
+    this->close();
     vsWindow->show();
 }
 void MainWindow_New::Users(){
+    this->close();
     vuWindow->show();
 }
 void MainWindow_New::AddStudent(){

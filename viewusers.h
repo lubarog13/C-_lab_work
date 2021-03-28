@@ -10,7 +10,7 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
-#include <adduser.h>
+#include <changeuser.h>
 
 namespace Ui {
 class viewUsers;
@@ -31,7 +31,7 @@ private:
     QLabel *label;
     QPushButton *btnBack;
     QPushButton *btnUpdate;
-    AddUser *aWindow;
+    changeUser *aWindow;
     QPushButton *btnChange;
     void Change();
 private slots:
